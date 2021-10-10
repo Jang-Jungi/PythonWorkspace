@@ -485,26 +485,26 @@ cabinet = {3:"유재석",100:"김태호"}
 # # 부족하면 빈 값을 넣어줘야함
 
 ''' 지역변수와 전역변수 '''
-gun = 10                  # 지역 변수
-def checkpoint(soldiers): # 경계근무
-    global gun            # 전역 공간에 있는 gun 사용 (코드 관리가 어려워짐)
-    gun = gun - soldiers
-    print(f"[함수 내] 남은 총 : {gun}")
+# gun = 10                  # 지역 변수
+# def checkpoint(soldiers): # 경계근무
+#     global gun            # 전역 공간에 있는 gun 사용 (코드 관리가 어려워짐)
+#     gun = gun - soldiers
+#     print(f"[함수 내] 남은 총 : {gun}")
 
-print(f"전체 총 : {gun}")
-checkpoint(2)             # 2명이 경계 근무에 나감
-print(f"남은 총 : {gun}")
+# print(f"전체 총 : {gun}")
+# checkpoint(2)             # 2명이 경계 근무에 나감
+# print(f"남은 총 : {gun}")
 
-### 이 방법을 더 많이 사용한다. ###
-gun = 10                          # 지역 변수
-def checkpoint_ret(gun,soldiers): # 경계근무
-    gun = gun - soldiers
-    print(f"[함수 내] 남은 총 : {gun}")
-    return gun
+# ### 이 방법을 더 많이 사용한다. ###
+# gun = 10                          # 지역 변수
+# def checkpoint_ret(gun,soldiers): # 경계근무
+#     gun = gun - soldiers
+#     print(f"[함수 내] 남은 총 : {gun}")
+#     return gun
 
-print(f"전체 총 : {gun}")
-gun = checkpoint_ret(gun,2)       # 2명이 경계 근무에 나감
-print(f"남은 총 : {gun}")
+# print(f"전체 총 : {gun}")
+# gun = checkpoint_ret(gun,2)       # 2명이 경계 근무에 나감
+# print(f"남은 총 : {gun}")
 
 ''' Quiz 6 '''
 # # 표준 체중을 구하는 프로그램을 작성하라
@@ -721,6 +721,13 @@ print(f"남은 총 : {gun}")
 # # marine, tank : Unit 함수의 인스턴스
 # # name, hp, damage : 멤버 변수
 
+# class Unit:
+#     def __init__(self,name,hp,damage):
+#         self.name = name
+#         self.hp = hp
+#         self.damage = damage
+#         print(f"{self.name}유닛이 생성되었습니다.")
+#         print(f"체력:{self.hp}, 공격력:{self.damage}")
 # # 레이스 : 공중 유닛, 비행기, 클로킹
 # wraith1 = Unit("레이스", 80, 5)
 # print(f"유닛 이름 : {wraith1.name}, 공격력 : {wraith1.damage}") 
@@ -840,6 +847,8 @@ print(f"남은 총 : {gun}")
 # valkyrie = FlyableAttackUnit("발키리",200,6,5)
 # valkyrie.fly(valkyrie.name,"3시")
 
+
+
 ''' 연산자 오버로딩, 메서도 오버라이딩 '''
 # # 부모 클래스에서 정의한 메소드 말고 자식 클래스에서 정의한 메소드를 사용하고 싶을 때
 # class Unit:
@@ -932,6 +941,9 @@ print(f"남은 총 : {gun}")
 #         #Unit.__init__(self,name,hp,0)
 #         super().__init__(name,hp,0) # self만 빼고 받는다.
 #         self.location = location
+#         print(f"{self.name} : {hp} 건물 체력, 위치 : {location}.")
+
+# suply_depot = BuildingUnit("서플라이 디폿", 500, "7시")
 
 ''' Quiz 8 클래스 '''
 # # 주어진 코드를 활용하여 부동산 프로그램을 작성하라.
@@ -976,16 +988,16 @@ print(f"남은 총 : {gun}")
 #     nums = []
 #     nums.append(int(input("첫 번째 숫자를 입력하세요 :")))
 #     nums.append(int(input("두 번째 숫자를 입력하세요 :")))
-#     #nums.append(int(nums[0]/nums[1]))
+#     nums.append(int(nums[0]/nums[1]))
 #     print(f"{nums[0]}/{nums[1]}={nums[2]}")
 
 # # 잘못된 입력 값 예외 처리
 # except ValueError:
 #     print("에러! 잘못된 값을 입력하였습니다.")
 
-# # 0으로 나눌 때 에러처리
-# except ZeroDivisionError as err:
-#     print(err)
+# # # 0으로 나눌 때 에러처리
+# # except ZeroDivisionError :
+# #     print("0으로는 나눌 수 없다.")
 
 # # 알 수없는 에러 처리
 # except Exception as err:
